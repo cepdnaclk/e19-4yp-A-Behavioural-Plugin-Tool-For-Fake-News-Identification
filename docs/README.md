@@ -19,8 +19,8 @@ title: A behavioural plugin tool for fake news identification
 
 #### Supervisors
 
-- Name, [email](mailto:name@eng.pdn.ac.lk)
-- Name, [email](mailto:name@eng.pdn.ac.lk)
+- Assoc Prof Nalin Arachchilage, [email](mailto:name@eng.pdn.ac.lk)
+- Prof Roshan Ragel, [email](mailto:name@eng.pdn.ac.lk)
 
 #### Table of content
 
