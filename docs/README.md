@@ -4,18 +4,18 @@ permalink: index.html
 
 # Please update this with your repository name and title
 repository-name: eYY-4yp-project-template
-title:
+title: A behavioural plugin tool for fake news identification
 ---
 
 [comment]: # "This is the standard layout for the project, but you can clean this and use your own template"
 
-# Project Title
+# A behavioural plugin tool for fake news identification
 
 #### Team
 
-- eNumber, Name, [email](mailto:name@email.com)
-- eNumber, Name, [email](mailto:name@email.com)
-- eNumber, Name, [email](mailto:name@email.com)
+- E/19/069, Delini S., [email](mailto:name@email.com)
+- E/19/244, Mohanathas H., [email](mailto:name@email.com)
+- E/19/494, Thevambikai T., [email](mailto:name@email.com)
 
 #### Supervisors
 
@@ -68,8 +68,8 @@ This is a sample image, to show how to add images to your page. To learn more op
 
 [//]: # ( NOTE: EDIT THIS LINKS WITH YOUR REPO DETAILS )
 
-- [Project Repository](https://github.com/cepdnaclk/repository-name)
-- [Project Page](https://cepdnaclk.github.io/repository-name)
+- [Project Repository](https://github.com/cepdnaclk/e19-A-Behavioural-Plugin-Tool-For-Fake-News-Identification)
+- [Project Page](https://cepdnaclk.github.io/e19-A-Behavioural-Plugin-Tool-For-Fake-News-Identification)
 - [Department of Computer Engineering](http://www.ce.pdn.ac.lk/)
 - [University of Peradeniya](https://eng.pdn.ac.lk/)
 
