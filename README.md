@@ -1,8 +1,9 @@
 ___
-# DELETE THIS INSTRUCTIONS AND ADD A SHORT INTRODUCTION ABOUT YOUR PROJECT
+# A Behavioural Plugin Tool for Fake News Identification 
 ___
 
-## The rapid spread of fake news on digital platforms poses significant risks, 
+## Abstract
+The rapid spread of fake news on digital platforms poses significant risks, 
 influencing public opinion and undermining trust in media. This proposal aims 
 to enhance the accuracy of fake news detection by developing a multimodal 
 system that integrates both text and image analysis. Recognizing that fake news 
