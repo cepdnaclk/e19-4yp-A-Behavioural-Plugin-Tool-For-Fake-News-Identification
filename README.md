@@ -18,3 +18,7 @@ provide users with a seamless, real-time interface for detecting fake news while
 browsing the web. The outcome will be an accurate, user-friendly, and efficient 
 browser plugin that enhances content trustworthiness through advanced fake 
 news detection. 
+
+#### Fakeddit dataset
+
+You can download the dataset [here](https://drive.google.com/drive/folders/1jU7qgDqU1je9Y0PMKJ_f31yXRo5uWGFm?usp=sharing).
