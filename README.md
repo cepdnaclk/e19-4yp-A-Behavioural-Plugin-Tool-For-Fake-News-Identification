@@ -26,6 +26,24 @@ You can download the dataset [here](https://drive.google.com/drive/folders/1jU7q
 #### Emojis dictionary
 You can download emojis dictioary [here](https://www.kaggle.com/datasets/uom190346a/emoji-presentation-dataset).
 
+#### 🔍😃Emotion Analysis
+After cleaning and preprocessing, the final dataset is saved as cleaned_comments.csv inside the Emotion-Analysis directory. This file contains cleaned versions of the original comments with noise removed using a series of preprocessing steps.
+
+🧹 Noise Removal Process
+The following steps were performed to clean the raw comment text:
+- Replace emojis with words – Convert emojis (e.g., 😳) into text labels (e.g., flushed face) using a custom emoji dictionary.
+- Remove newlines and tabs – Flatten multi-line comments into single-line text.
+- Strip HTML tags – Remove embedded HTML code from comments.
+- Remove URLs – Eliminate links that do not contribute to emotion detection.
+- Remove accented characters
+- Expand contractions – Convert shortened words (e.g., “don’t”) to full form (“do not”).
+- Remove special characters (except ! and ?) 
+- Reduce repeated characters – Normalize exaggerated expressions (e.g., “soooo” → “soo”).
+- Correct misspelled words 
+- Remove stopwords
+- Trim extra whitespaces
+
+
 ### This installs all the required packages in one step.
 pip install -r requirements.txt
 
