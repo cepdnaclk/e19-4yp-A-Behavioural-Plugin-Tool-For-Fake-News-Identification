@@ -44,6 +44,6 @@ The following steps were performed to clean the raw comment text:
 - Trim extra whitespaces
 
 
-### This installs all the required packages in one step.
+### ❕This installs all the required packages in one step.
 pip install -r requirements.txt
 
