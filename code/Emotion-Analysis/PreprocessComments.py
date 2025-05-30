@@ -1,4 +1,3 @@
-# PreprocessComments.py
 import re
 import html
 import unidecode
@@ -10,29 +9,29 @@ from bs4 import MarkupResemblesLocatorWarning
 from spellchecker import SpellChecker
 from nltk.corpus import stopwords
 import pandas as pd
+import swifter
 import warnings
-import pandas as pd
 
-
+# Ignore certain BeautifulSoup warnings
 warnings.filterwarnings("ignore", category=MarkupResemblesLocatorWarning)
+
 # Download NLTK stopwords if not already present
 nltk.download('stopwords')
 
-# Initialize resources
+# Initialize stopwords and spell checker
 stop_words = set(stopwords.words('english'))
 spell = SpellChecker()
 correction_cache = {}
 
-#Remove repeated characters (e.g., "soooo" → "soo")
+# Reduce repeated characters (e.g., "soooo" → "soo")
 def reduce_repeated_chars(text):
     return re.sub(r'(.)\1{2,}', r'\1\1', text)
 
-#Expand contractions (e.g., "don't" → "do not")
+# Expand contractions (e.g., "don't" → "do not")
 def expand_contractions(text):
     return contractions.fix(text)
 
-
-# Correct spelling with caching
+# Correct spelling with caching (optional, currently disabled for performance)
 def correct_spelling(text):
     corrected = []
     for word in text.split():
@@ -48,12 +47,13 @@ def correct_spelling(text):
             corrected.append(corrected_word)
     return ' '.join(corrected)
 
-#using the emoji representation dataset - https://www.kaggle.com/datasets/uom190346a/emoji-presentation-dataset
+# Load emoji dictionary from CSV
 def load_emoji_dict_from_csv(csv_path):
     df = pd.read_csv(csv_path, encoding='utf-8')
     emoji_dict = dict(zip(df['Representation'], df['Name']))
     return emoji_dict
 
+# Replace emojis with words
 def replace_emojis_custom(text, emoji_dict):
     if not isinstance(text, str):
         return text
@@ -61,61 +61,43 @@ def replace_emojis_custom(text, emoji_dict):
         text = text.replace(emoji_char, f" {word} ")
     return text
 
-#load emojis dataset
+# Load emoji mappings
 emoji_dict = load_emoji_dict_from_csv("cleaned_emojis.csv")
 
-# 5. Clean function applying all steps
+# Full cleaning pipeline
 def clean_text(text):
     if not isinstance(text, str):
         return text
-    # 1. Replace emojis using your dataset
+
     text = replace_emojis_custom(text, emoji_dict)
-
-    # 2. Remove new lines and tabs
     text = text.replace('\n', ' ').replace('\r', ' ').replace('\t', ' ')
-
-    # 3. Strip HTML tags
     text = BeautifulSoup(text, "html.parser").get_text()
-
-    # 4. Remove URLs
     text = re.sub(r'http\S+|www\.\S+', '', text)
-
-    # 5. Remove accented characters
     text = unidecode.unidecode(text)
-
-    # 6. Expand contractions
     text = expand_contractions(text)
-
-    # 7. Remove special characters except ! and ?
     text = re.sub(r"[^a-zA-Z0-9!? ]", " ", text)
-
-    # 8. Reduce repeated characters
     text = reduce_repeated_chars(text)
-
-    # 9. Correct misspelled words
-    #text = correct_spelling(text)
-
-    # 10. Remove stopwords
+    # text = correct_spelling(text)  # Optional - slow
     words = [word for word in text.split() if word.lower() not in stop_words]
     text = ' '.join(words)
-
-    # 11. Remove extra whitespaces
     text = re.sub(r'\s+', ' ', text).strip()
 
     return text
 
-#Load and preprocess CSV file with comments
+# Main script to process in chunks with Swifter
 if __name__ == "__main__":
-    input_path = 'cleaned_output.csv'
-    output_path = 'cleaned_comments.csv'
+    input_path = 'cleaned_comments.csv'
+    output_path = 'preprocess_comments.csv'
+    chunk_size = 100000
 
-    # Handle mixed data types warning
-    df = pd.read_csv(input_path, low_memory=False)
+    reader = pd.read_csv(input_path, chunksize=chunk_size, low_memory=False)
+    first = True
 
-    # Apply cleaning function
-    df['clean_body'] = df['body'].apply(clean_text)
+    for i, chunk in enumerate(reader):
+        print(f"🔄 Processing chunk {i+1}...")
+        chunk['clean_body'] = chunk['body'].swifter.apply(clean_text)
+        chunk.to_csv(output_path, mode='w' if first else 'a', index=False, header=first)
+        first = False
+        print(f"Finished chunk {i+1}")
 
-    # Save cleaned data
-    df.to_csv(output_path, index=False)
-
-    print(f"✅ Cleaned data saved to {output_path}")
+    print(f"All chunks processed and saved to {output_path}")
