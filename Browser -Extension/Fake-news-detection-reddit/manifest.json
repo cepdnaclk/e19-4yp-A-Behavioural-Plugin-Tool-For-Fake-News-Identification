@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Reddit Fake News Detector",
+  "version": "1.0",
+  "description": "Detects and labels fake news in Reddit posts.",
+  "permissions": ["scripting", "activeTab", "storage"],
+  "host_permissions": ["https://www.reddit.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.reddit.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "sentiment.png",
+      "48": "sentiment.png",
+      "128": "sentiment.png"
+    }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/search.png"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reddit Fake News Detector</title>
+  <link href="popup.css" rel="stylesheet" type="text/css" />
+  <script type="module" src="popup.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 10px;
+      width: 300px;
+    }
+    h3 {
+      margin-top: 0;
+    }
+    .status {
+      margin-top: 15px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .real {
+      color: green;
+    }
+    .fake {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h3>Fake News Detector</h3>
+  <p>Automatically checks Reddit posts for misinformation.</p>
+
+  <div class="status" id="detection-status">🔍 Checking...</div>
+</body>
+</html>
