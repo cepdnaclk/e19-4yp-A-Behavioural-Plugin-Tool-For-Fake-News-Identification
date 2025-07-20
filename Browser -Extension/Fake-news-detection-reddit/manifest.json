@@ -3,7 +3,7 @@
   "name": "Reddit Fake News Detector",
   "version": "1.0",
   "description": "Detects and labels fake news in Reddit posts.",
-  "permissions": ["scripting", "activeTab", "storage"],
+  "permissions": ["activeTab"],
   "host_permissions": ["https://www.reddit.com/*"],
   "background": {
     "service_worker": "background.js"

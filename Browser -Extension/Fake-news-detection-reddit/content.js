@@ -67,12 +67,47 @@
             fontWeight: "bold",
         });
 
-        btn.addEventListener("click", () => {
-            console.log("Button clicked:", postId);
-            const isFake = postId.charCodeAt(0) % 2 === 1;
-            resultSpan.textContent = isFake ? "🚫 Fake" : "✅ Real";
-            resultSpan.style.color = isFake ? "red" : "green";
+        btn.addEventListener("click", async () => {
+            console.log("🔍 Button clicked:", postId);
+            resultSpan.textContent = "⏳ Analyzing...";
+            resultSpan.style.color = "black";
+
+            try {
+                const API_BASE_URL =
+                    location.hostname === "localhost"
+                        ? "http://localhost:8000"
+                        : "https://75a0bffeb671.ngrok-free.app";
+
+                const response = await fetch(`${API_BASE_URL}/analyze`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ post_id: postId })
+                });
+
+                if (!response.ok) {
+                    throw new Error("API Error");
+                }
+
+                const result = await response.json();
+                const label = result.label;
+                const confidence = result.confidence;
+
+                if (label === "FAKE") {
+                    resultSpan.textContent = `🚫 Fake (${confidence * 100}%)`;
+                    resultSpan.style.color = "red";
+                } else {
+                    resultSpan.textContent = `✅ Real (${confidence * 100}%)`;
+                    resultSpan.style.color = "green";
+                }
+            } catch (err) {
+                console.error("❌ Error analyzing post:", err);
+                resultSpan.textContent = "❌ Error";
+                resultSpan.style.color = "gray";
+            }
         });
+
 
         // Inject button after the Share button
         shareBtn.after(btn);
