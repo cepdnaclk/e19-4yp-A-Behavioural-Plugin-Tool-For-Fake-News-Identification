@@ -196,9 +196,6 @@
           <div class="section-heading  wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
             <h4>Exclusive <em> Features</em> of the tool</h4>
             <img src="assets/images/heading-line-dec.png" alt="">
-            <p style="font-size: 20px;"><strong>Explore the advanced capabilities of our fake news detection plugin
-                designed for real-time analysis and
-                trust scoring. Built using cutting-edge technology and behavioural insights.</strong></p>
           </div>
         </div>
       </div>
@@ -266,8 +263,8 @@
           <div class="section-heading">
             <h4>How <em>the tool</em> works</h4>
             <img src="assets/images/heading-line-dec.png" alt="">
-            <p>The plugin integrates behavioural signals, text semantics, and image content to detect fake news in
-              real-time while browsing social media posts.</p>
+            <p style="font-size: 20px;"><strong>The plugin integrates behavioural signals, text semantics, and image content to detect fake news in
+              real-time while browsing social media posts.</strong></p>
           </div>
           <div class="row">
             <div class="col-lg-6">
@@ -298,10 +295,6 @@
                   confidence score. This result is returned as JSON and displayed directly inside the Reddit feed via
                   the extension.</p>
               </div>
-            </div>
-            <div class="col-lg-12">
-              <p>The system fuses text, image, and comment-based emotion vectors to generate a final trust score shown
-                to the user instantly.</p>
             </div>
           </div>
         </div>
@@ -581,10 +574,7 @@
           <div class="section-heading">
             <h4>Research <em>&</em> technology</h4>
             <img src="assets/images/heading-line-dec.png" alt="">
-            <p>The consequences of fake news are far-reaching, impacting
-              political stability, public health, and societal trust in media sources. Detecting
-              and addressing fake news is essential for maintaining the integrity of
-              information and reducing the harmful effects of misinformation on society. </p>
+            <p style="font-size: 20px;"><strong>We use a Hybrid BERT model that combines deep language understanding with tabular features like sentiment, emotion, and engagement. This fusion improves fake news detection by capturing both context and behavior. Built with FastAPI and Reddit APIs, our system enables accurate, real-time analysis for social media platforms. </strong></p>
           </div>
         </div>
         <div class="col-lg-4">
@@ -624,12 +614,12 @@
               <img src="assets/images/caption.png" alt="">
             </div>
             <ul>
-              <li>Extracts tweet image content using BLIP model</li>
-              <li>Generates semantic captions using Vision-Language model</li>
-              <li>BiLSTM encoder processes caption into feature vector</li>
-              <li>Captions add contextual understanding to the news</li>
-              <li>Combines with text & emotion data for detection</li>
-              <li>Improves fake news identification in visual content</li>
+              <li>The process starts by obtaining the image URL.</li>
+              <li>The image is downloaded using the `requests` library.</li>
+              <li>The BLIP model is loaded using `transformers`.</li>
+              <li>The BLIP model generates a caption for the image.</li>
+              <li>The caption is decoded into human-readable text.</li>
+              <li>The decoded caption is sent to the Text Analysis Unit.</li>
             </ul>
           </div>
         </div>
@@ -661,12 +651,12 @@
             <h4>Technologies</h4>
             <ul>
               <li><strong>Python</strong> – Core backend language for processing and ML models</li>
-              <li><strong>Flask API</strong> – Lightweight server to connect the plugin with ML model</li>
+              <li><strong>FastAPI</strong> – A lightweight and high-performance web framework used to connect the browser plugin with the machine learning model</li>
               <li><strong>TensorFlow & PyTorch</strong> – For training and deploying text/image models</li>
               <li><strong>NLTK & TextBlob</strong> – Natural language processing and sentiment analysis</li>
               <li><strong>BLIP</strong> – Vision-language model for generating image captions</li>
               <li><strong>NRC Emotion Lexicon</strong> – Emotional analysis of comment sentiment</li>
-              <li><strong>JavaScript & Chrome Extension API</strong> – Frontend for browser plugin</li>
+              <li><strong>JavaScript & Chrome Extension API</strong></li>
             </ul>
           </div>
         </div>
@@ -723,7 +713,7 @@
       <div class="row">
         <div class="col-lg-8 offset-lg-2">
           <div class="section-heading">
-            <h4>Meet our team</h4>
+            <h4 style="color: rgb(21, 13, 110);">Meet our team</h4>
             <div class="row justify-content-center text-center">
               <div class="col-lg-4 text-center">
                 <img src="assets/images/delini.jpg" alt="Team Member 1" class="rounded-circle mb-2"
