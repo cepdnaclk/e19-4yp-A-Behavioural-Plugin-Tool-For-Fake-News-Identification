@@ -17,7 +17,7 @@
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
- 
+
 
   <!-- Additional CSS Files -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -167,13 +167,13 @@
                 <div class="row">
                   <div class="col-lg-12">
                     <h2>A Behavioural Plugin Tool for Fake News Identification </h2>
-                    <p>The rapid spread of fake news on social media platforms poses significant risks,
+                    <h5>The rapid spread of fake news on social media platforms poses significant risks,
                       influencing public opinion and undermining trust in media. This tool aims
                       to enhance the accuracy of fake news detection by developing a multimodal
-                      system that integrates both text and image analysis.</p>
+                      system that integrates both text and image analysis.</h5>
                   </div>
                   <div class="col-lg-12">
-                    
+
                   </div>
                 </div>
               </div>
@@ -196,8 +196,9 @@
           <div class="section-heading  wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
             <h4>Exclusive <em> Features</em> of the tool</h4>
             <img src="assets/images/heading-line-dec.png" alt="">
-            <p>Explore the advanced capabilities of our fake news detection plugin designed for real-time analysis and
-              trust scoring. Built using cutting-edge technology and behavioural insights.</p>
+            <p style="font-size: 20px;"><strong>Explore the advanced capabilities of our fake news detection plugin
+                designed for real-time analysis and
+                trust scoring. Built using cutting-edge technology and behavioural insights.</strong></p>
           </div>
         </div>
       </div>
@@ -207,9 +208,11 @@
         <div class="col-lg-3">
           <div class="service-item third-service">
             <div class="icon"></div>
-            <h4>Hybrid Fake News Detection</h4>
-            <p>Combines text, image, and comment behavior analysis to assess news authenticity across multiple
-              dimensions.</p>
+            <h4>Multimodal News Analysis</h4>
+            <p>
+              Combines text, image, and metadata features using deep learning to capture cross-modal signals and
+              context. This fusion improves the accuracy of fake news detection across diverse content types.
+            </p>
             <div class="text-button">
             </div>
           </div>
@@ -217,7 +220,7 @@
         <div class="col-lg-3">
           <div class="service-item fourth-service">
             <div class="icon"></div>
-            <h4>Emotion-Based Reply Analysis</h4>
+            <h4>Emotion-Based Comments Analysis</h4>
             <p>Uses NRC Emotion Lexicon and emoji semantics to detect public emotional response and novelty cues in
               replies.</p>
             <div class="text-button">
@@ -228,9 +231,12 @@
         <div class="col-lg-3">
           <div class="service-item first-service">
             <div class="icon"></div>
-            <h4>AI-Powered Image Captioning</h4>
-            <p>Generates semantic captions for tweet images using ResNet and BiLSTM models to match visuals with
-              content.</p>
+            <h4>Region-Based Embeddings</h4>
+            <p>
+              Regions extracted from news titles are mapped to IDs, then encoded using neural networks to generate
+              embeddings. These vectors capture geographic context for improved fake news detection.
+            </p>
+
             <div class="text-button">
               <!-- <a href="#">Read More <i class="fa fa-arrow-right"></i></a> -->
             </div>
@@ -239,9 +245,11 @@
         <div class="col-lg-3">
           <div class="service-item second-service">
             <div class="icon"></div>
-            <h4>Real-Time Trust Scoring</h4>
-            <p>Instantly displays a trust score badge with color-coded feedback to help users assess news credibility at
-              a glance.</p>
+            <h4>Real-Time Trust & Sentiment Scoring</h4>
+            <p>
+              Instantly displays a credibility label and sentiment score with color-coded feedback, helping users
+              quickly assess the authenticity and emotional tone of news content.
+            </p>
             <div class="text-button">
               <!-- <a href="#">Read More <i class="fa fa-arrow-right"></i></a> -->
             </div>
@@ -264,38 +272,51 @@
           <div class="row">
             <div class="col-lg-6">
               <div class="box-item">
-                <h4><a href="#">Post Content Extraction in soacial media</a></h4>
-                <p>Automatically scrapes tweet text, image, and top replies from the current browser tab.</p>
+                <h4><a href="#">Browser Extension</a></h4>
+                <p>Captures Reddit post IDs in real time as users scroll. Sends the data via an HTTP POST request to the
+                  FastAPI backend (/analyze endpoint).</p>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="box-item">
-                <h4><a href="#">NLP-Based Text Analysis</a></h4>
-                <p>Applies language models to analyze the factual tone, keywords, and sentence structures.</p>
+                <h4><a href="#">FastAPI Backend on AWS</a></h4>
+                <p>Hosted on AWS EC2, the FastAPI backend receives requests and uses PRAW (Python Reddit API Wrapper) to
+                  fetch the full Reddit post content based on the post ID.</p>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="box-item">
-                <h4><a href="#">Emotion Mapping in Replies</a></h4>
-                <p>Classifies comment emotions using NRC Lexicon and emoji patterns to detect user sentiment.</p>
+                <h4><a href="#">Feature Extraction & Processing</a></h4>
+                <p>Fetched content is passed through multiple ML feature extractors such as text cleaning, emotion
+                  classification, and region detection, preparing the data for analysis.</p>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="box-item">
-                <h4><a href="#">Visual Caption Generation</a></h4>
-                <p>Uses AI to describe images and compare them with text for semantic alignment or contradiction.</p>
+                <h4><a href="#">Prediction & UI Display</a></h4>
+                <p>The processed data is sent to a Hybrid-BERT trained model that returns a real/fake label and a
+                  confidence score. This result is returned as JSON and displayed directly inside the Reddit feed via
+                  the extension.</p>
               </div>
             </div>
             <div class="col-lg-12">
               <p>The system fuses text, image, and comment-based emotion vectors to generate a final trust score shown
                 to the user instantly.</p>
-
             </div>
           </div>
         </div>
         <div class="col-lg-6">
           <div class="right-image">
             <img src="assets/images/plugin flow.png" alt="">
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="width: fit-content;">
+            <div class="pricing-item-regular">
+              <div>
+                <img src="assets/images/high.png" alt="">
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -560,10 +581,10 @@
           <div class="section-heading">
             <h4>Research <em>&</em> technology</h4>
             <img src="assets/images/heading-line-dec.png" alt="">
-            <p>The consequences of fake news are far-reaching, impacting 
-political stability, public health, and societal trust in media sources. Detecting 
-and addressing fake news is essential for maintaining the integrity of 
-information and reducing the harmful effects of misinformation on society. </p>
+            <p>The consequences of fake news are far-reaching, impacting
+              political stability, public health, and societal trust in media sources. Detecting
+              and addressing fake news is essential for maintaining the integrity of
+              information and reducing the harmful effects of misinformation on society. </p>
           </div>
         </div>
         <div class="col-lg-4">
@@ -612,31 +633,83 @@ information and reducing the harmful effects of misinformation on society. </p>
             </ul>
           </div>
         </div>
+
+        <div class="col-lg-4">
+          <div class="pricing-item-regular">
+            <h4>Geographic Analysis</h4>
+            <div class="icon">
+              <img src="assets/images/geo-analysis.png" alt="Geographic Analysis Process" style="max-width: 600px;">
+            </div>
+            <ul>
+              <li><strong>Input Raw Titles</strong> – Extract location clues directly from news headlines.</li>
+
+              <li><strong>Geographic Area Detection</strong> – Use NLP to identify place names and map them to
+                real-world locations.</li>
+
+              <li><strong>Sub-Continent Grouping</strong> – Cluster detected places into broader geopolitical regions.
+              </li>
+
+              <li><strong>Region ID Assignment</strong> – Assign numerical IDs to each region for embedding into the ML
+                model.</li>
+            </ul>
+          </div>
+        </div>
+
+
+        <div class="col-lg-4">
+          <div class="pricing-item-regular">
+            <h4>Technologies</h4>
+            <ul>
+              <li><strong>Python</strong> – Core backend language for processing and ML models</li>
+              <li><strong>Flask API</strong> – Lightweight server to connect the plugin with ML model</li>
+              <li><strong>TensorFlow & PyTorch</strong> – For training and deploying text/image models</li>
+              <li><strong>NLTK & TextBlob</strong> – Natural language processing and sentiment analysis</li>
+              <li><strong>BLIP</strong> – Vision-language model for generating image captions</li>
+              <li><strong>NRC Emotion Lexicon</strong> – Emotional analysis of comment sentiment</li>
+              <li><strong>JavaScript & Chrome Extension API</strong> – Frontend for browser plugin</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="pricing-item-regular">
+            <h4>Backend</h4>
+            <div>
+              <img src="assets/images/backend.png" alt="" style="width: 400px; height: auto;">
+            </div>
+
+          </div>
+        </div>
         <div class="row justify-content-center">
-          <div class="col-lg-4 col-md-6">
+          <div class="width: fit-content;">
             <div class="pricing-item-regular">
-              <h4>Technologies</h4>
-              <div class="icon">
-                <img src="assets/images/generate an image fo.png" alt="">
+              <div>
+                <img src="assets/images/model.png" alt="" style="max-width: 800px; height: auto;">
               </div>
-              <ul>
-                <li><strong>Python</strong> – Core backend language for processing and ML models</li>
-                <li><strong>Flask API</strong> – Lightweight server to connect the plugin with ML model</li>
-                <li><strong>TensorFlow & PyTorch</strong> – For training and deploying text/image models</li>
-                <li><strong>NLTK & TextBlob</strong> – Natural language processing and sentiment analysis</li>
-                <li><strong>BLIP</strong> – Vision-language model for generating image captions</li>
-                <li><strong>NRC Emotion Lexicon</strong> – Emotional analysis of comment sentiment</li>
-                <li><strong>JavaScript & Chrome Extension API</strong> – Frontend for browser plugin</li>
-              </ul>
             </div>
           </div>
         </div>
         <div class="row justify-content-center">
           <div class="width: fit-content;">
             <div class="pricing-item-regular">
-              <h4>Sample Output from tool</h4>
               <div>
-                <img src="assets/images/final-output.jpg" alt="">
+                <img src="assets/images/Extension-component.png" alt="" style="max-width: 800px; height: auto;">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="width: fit-content;">
+            <div class="pricing-item-regular">
+              <h4>Demo of the Extension</h4>
+              <div>
+                <iframe
+                  width="100%" height="400"
+                  src="https://www.youtube.com/embed/gvi_cIjql60"
+                  title="Model Output Demo"
+                  style="max-width:800px; min-width:280px; border:0; display:block; margin:0 auto;"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
               </div>
             </div>
           </div>
@@ -653,47 +726,57 @@ information and reducing the harmful effects of misinformation on society. </p>
             <h4>Meet our team</h4>
             <div class="row justify-content-center text-center">
               <div class="col-lg-4 text-center">
-                <img src="assets/images/delini.jpg" alt="Team Member 1" class="rounded-circle mb-2" style="width: 180px; height: 180px; object-fit: cover; display: block; margin: 0 auto;">
+                <img src="assets/images/delini.jpg" alt="Team Member 1" class="rounded-circle mb-2"
+                  style="width: 180px; height: 180px; object-fit: cover; display: block; margin: 0 auto;">
                 <h5>Delini S.</h5>
                 <h6>E/19/069</h6>
-                <a href="https://www.thecn.com/SD1563" target="_blank"><i class="fas fa-briefcase" style="color: white;"></i> <span>Portfolio</span></a>
+                <a href="https://www.thecn.com/SD1563" target="_blank"><i class="fas fa-briefcase"
+                    style="color: white;"></i> <span>Portfolio</span></a>
               </div>
               <div class="col-lg-4">
-                <img src="assets/images/hamsi.jpg" alt="Team Member 2" class="rounded-circle mb-2" style="width: 180px; height: 180px; object-fit: cover; display: block; margin: 0 auto;">
+                <img src="assets/images/hamsi.jpg" alt="Team Member 2" class="rounded-circle mb-2"
+                  style="width: 180px; height: 180px; object-fit: cover; display: block; margin: 0 auto;">
                 <h5>Mohanathas H.</h5>
                 <h6>E/19/244</h6>
-                <a href="https://www.thecn.com/HM1000" target="_blank"><i class="fas fa-briefcase" style="color: white;"></i> <span>Portfolio</span></a>
+                <a href="https://www.thecn.com/HM1000" target="_blank"><i class="fas fa-briefcase"
+                    style="color: white;"></i> <span>Portfolio</span></a>
               </div>
               <div class="col-lg-4">
-                <img src="assets/images/thevi.jpg" alt="Team Member 3" class="rounded-circle mb-2" style="width: 180px; height: 180px; object-fit: cover; display: block; margin: 0 auto;">
+                <img src="assets/images/thevi.jpg" alt="Team Member 3" class="rounded-circle mb-2"
+                  style="width: 180px; height: 180px; object-fit: cover; display: block; margin: 0 auto;">
                 <h5>Thevambikai</h5>
                 <h6>E/19/494</h6>
-                <a href="https://www.thecn.com/TT2677" target="_blank"><i class="fas fa-briefcase" style="color: white;"></i> <span>Portfolio</span></a>
+                <a href="https://www.thecn.com/TT2677" target="_blank"><i class="fas fa-briefcase"
+                    style="color: white;"></i> <span>Portfolio</span></a>
               </div>
             </div>
-            
+
             <h4>Supervisors</h4>
             <div class="row justify-content-center text-center">
               <div class="col-lg-4">
-                <img src="assets/images/nalinsir.jpg" alt="Team Member 2" class="rounded-circle mb-2" style="width: 180px; height: 180px; object-fit: cover; display: block; margin: 0 auto;">
+                <img src="assets/images/nalinsir.jpg" alt="Team Member 2" class="rounded-circle mb-2"
+                  style="width: 180px; height: 180px; object-fit: cover; display: block; margin: 0 auto;">
                 <h5>Dr Nalin Arachchilage</h5>
                 <h6>Associate Professor</h6>
                 <h6>School of Computing Technologies, RMIT University, Australia. </h6>
-                <a href="nalin.arachchilage@rmit.edu.au" target="_blank"><i class="fas fa-envelope" style="color: white;"></i> <span>E-mail</span></a>
+                <a href="nalin.arachchilage@rmit.edu.au" target="_blank"><i class="fas fa-envelope"
+                    style="color: white;"></i> <span>E-mail</span></a>
               </div>
               <div class="col-lg-4 text-center">
-                <img src="assets/images/roshan-ragel-sir.jpg" alt="Team Member 1" class="rounded-circle mb-2" style="width: 180px; height: 180px; object-fit: cover; display: block; margin: 0 auto;">
+                <img src="assets/images/roshan-ragel-sir.jpg" alt="Team Member 1" class="rounded-circle mb-2"
+                  style="width: 180px; height: 180px; object-fit: cover; display: block; margin: 0 auto;">
                 <h5>Prof. Roshan G. Ragel</h5>
                 <h6>Professor</h6>
                 <h6>Department of Computer Engineering, University of Peradeniya.</h6>
-                <a href="roshanr@eng.pdn.ac.lk" target="_blank"><i class="fas fa-envelope" style="color: white;"></i> <span>E-mail</span></a>
+                <a href="roshanr@eng.pdn.ac.lk" target="_blank"><i class="fas fa-envelope" style="color: white;"></i>
+                  <span>E-mail</span></a>
               </div>
             </div>
 
 
           </div>
         </div>
-      <hr style="border-top: 1px solid #fff; margin: 40px 0;"> 
+        <hr style="border-top: 1px solid #fff; margin: 40px 0;">
       </div>
       <div class="row justify-content-center">
         <div class="col-lg-3 col-md-6 mb-4">
@@ -706,13 +789,17 @@ information and reducing the harmful effects of misinformation on society. </p>
             <p><a href="#">headce@eng.pdn.ac.lk</a></p>
           </div>
         </div>
-        
+
         <div class="col-lg-3 col-md-6 mb-4">
           <div class="footer-widget">
             <h4>Useful Links</h4>
             <ul>
-              <li><a href="https://github.com/cepdnaclk/e19-4yp-A-Behavioural-Plugin-Tool-For-Fake-News-Identification"><i class="fab fa-github"></i> Repository</a></li>
-              <li><a href="https://projects.ce.pdn.ac.lk/4yp/e19/A-Behavioural-Plugin-Tool-For-Fake-News-Identification/"><i class="fas fa-external-link-alt"></i> Project page</a></li>
+              <li><a
+                  href="https://github.com/cepdnaclk/e19-4yp-A-Behavioural-Plugin-Tool-For-Fake-News-Identification"><i
+                    class="fab fa-github"></i> Repository</a></li>
+              <li><a
+                  href="https://projects.ce.pdn.ac.lk/4yp/e19/A-Behavioural-Plugin-Tool-For-Fake-News-Identification/"><i
+                    class="fas fa-external-link-alt"></i> Project page</a></li>
             </ul>
           </div>
         </div>
