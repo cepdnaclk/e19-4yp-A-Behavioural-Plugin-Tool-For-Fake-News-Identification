@@ -23,6 +23,38 @@ news detection.
 
 You can download the dataset [here](https://drive.google.com/drive/folders/1jU7qgDqU1je9Y0PMKJ_f31yXRo5uWGFm?usp=sharing).
 
+## 🔧 Backend Setup and Configuration
+
+The backend is a FastAPI application located in `Browser -Extension/Fake-news-detection-reddit/backend/` that provides the fake news detection API for the browser extension.
+
+### Prerequisites
+- Python 3.7 or higher
+
+### 1. Install Backend Dependencies
+Navigate to the backend directory and install the required packages:
+```bash
+cd "Browser -Extension/Fake-news-detection-reddit/backend"
+pip install -r requirements.txt
+```
+
+### 2. Running the Backend Server
+Start the FastAPI server using uvicorn:
+```bash
+uvicorn app:app --host 0.0.0.0 --port 8000 --reload
+```
+
+The backend server will be running at `http://localhost:8000`
+
+
+### 3. Backend Features
+The backend provides:
+- **Text Analysis**: Sentiment analysis and emotion detection from post content and comments
+- **Image Analysis**: Image captioning for posts with images
+- **Behavioral Analysis**: Comment count, score, upvote ratio analysis
+- **Regional Analysis**: Geographic region classification
+- **Duplication Detection**: Content duplication checking against dataset
+
+
 #### Emojis dictionary
 You can download emojis dictioary [here](https://www.kaggle.com/datasets/uom190346a/emoji-presentation-dataset).
 
@@ -43,7 +75,4 @@ The following steps were performed to clean the raw comment text:
 - Remove stopwords
 - Trim extra whitespaces
 
-
-### ❕This installs all the required packages in one step.
-pip install -r requirements.txt
 
